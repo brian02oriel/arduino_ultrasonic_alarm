@@ -1,6 +1,6 @@
 #define trigPin 6
 #define echoPin 5
-#define buzzer 2
+#define buzzer 8
 
 void setup(){
   Serial.begin(9600);
@@ -30,10 +30,10 @@ long getDistance(){
 void activateBuzzer(long distance){
     float newDelay = (distance * 3) + 30;
     if(distance < 50) {
-    digitalWrite(buzzer, HIGH);
+    tone(buzzer, 2000);
     delay(newDelay);
-    digitalWrite(buzzer, LOW);
+    noTone(buzzer);
   } else {
-    digitalWrite(buzzer,LOW);
+    noTone(buzzer);
   }  
 }
